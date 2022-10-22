@@ -29,36 +29,14 @@ const ProductItem = (props: ProductItemsProps) => {
           {item.title}
         </Text>
         <View style={styles.ratingContainer}>
-          <FontAwesome
-            style={styles.star}
-            name="star"
-            size={18}
-            color="#e47911"
-          />
-          <FontAwesome
-            style={styles.star}
-            name="star"
-            size={18}
-            color="#e47911"
-          />
-          <FontAwesome
-            style={styles.star}
-            name="star"
-            size={18}
-            color="#e47911"
-          />
-          <FontAwesome
-            style={styles.star}
-            name="star-half-full"
-            size={18}
-            color="#e47911"
-          />
-          <FontAwesome
-            style={styles.star}
-            name="star-o"
-            size={18}
-            color="#e47911"
-          />
+          {[...new Array(5)].map((el, idx) => (
+            <FontAwesome
+              style={styles.star}
+              name={idx < Math.floor(item.avgRating) ? 'star' : 'star-o'}
+              size={18}
+              color="#e47911"
+            />
+          ))}
           <Text>{item.avgRating}</Text>
         </View>
         <Text style={styles.price}>
