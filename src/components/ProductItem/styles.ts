@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+// eslint-disable-next-line prettier/prettier
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   root: {
@@ -7,7 +8,7 @@ const styles = StyleSheet.create({
     borderColor: '#d1d1d1',
     borderRadius: 10,
     backgroundColor: '#fff',
-    marginVertical: 5
+    marginVertical: 5,
   },
   productImage: {
     flex: 2,
