@@ -4,11 +4,12 @@ import {Text, Pressable, StyleSheet} from 'react-native';
 interface ButtonProps {
   text: string;
   onPress: () => void;
+  containerStyles?: object;
 }
 
-const Button = ({text, onPress}: ButtonProps) => {
+const Button = ({text, onPress, containerStyles}: ButtonProps) => {
   return (
-    <Pressable onPress={onPress} style={styles.root}>
+    <Pressable onPress={onPress} style={[styles.root, containerStyles]}>
       <Text style={styles.text}>{text}</Text>
     </Pressable>
   );
@@ -16,19 +17,19 @@ const Button = ({text, onPress}: ButtonProps) => {
 
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: '#e47911',
+    backgroundColor: '#e77600',
     marginVertical: 10,
-    height: 35,
+    height: 40,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: '#a15e1b',
+    borderColor: '#D5D9D9',
   },
   text: {
-    color: '#000',
-    fontSize: 16,
-    fontWeight: '500',
+    color: '#0F1111',
+    fontSize: 18,
+    fontWeight: '300',
   },
 });
 
