@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import QuantitySelector from '../../components/QuantitySelector';
+import Button from '../../components/Button';
 import styles from './styles';
 import product from '../../data/product';
 
@@ -8,15 +10,22 @@ const ProductScreen = () => {
   const [selectedOption, setSelectedOption] = useState(
     product.options[0] ? product.options[0] : null,
   );
-  console.log(selectedOption);
+  const [quantity, setQuantity] = useState(1);
 
   return (
-    <View>
+    <View style={styles.root}>
       <Text style={styles.title}>{product.title}</Text>
 
       {/* Image carousel */}
 
       {/* option selector */}
+      <Picker
+        selectedValue={selectedOption}
+        onValueChange={itemValue => setSelectedOption(itemValue)}>
+        {product.options.map(op => (
+          <Picker.Item label={op} value={op} />
+        ))}
+      </Picker>
 
       {/* Price  */}
       <Text style={styles.price}>
@@ -30,15 +39,21 @@ const ProductScreen = () => {
       <Text style={styles.description}>{product.description}</Text>
 
       {/* Quantity Selector  */}
-      <Picker
-        selectedValue={selectedOption}
-        onValueChange={itemValue => setSelectedOption(itemValue)}>
-        {product.options.map(op => (
-          <Picker.Item label={op} value={op} />
-        ))}
-      </Picker>
+      <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
 
       {/* Button  */}
+      <Button
+        text={'Add To Cart'}
+        onPress={() => {
+          console.warn('Add to cart');
+        }}
+      />
+      <Button
+        text={'Buy Now'}
+        onPress={() => {
+          console.warn('buy now');
+        }}
+      />
     </View>
   );
 };
