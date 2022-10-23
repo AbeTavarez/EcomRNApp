@@ -1,7 +1,12 @@
 import React from 'react';
 import {View, Text, Pressable, StyleSheet} from 'react-native';
 
-const QuantitySelector = ({quantity, setQuantity}) => {
+interface QuantityProps {
+  quantity: number;
+  setQuantity: (value: number) => void;
+}
+
+const QuantitySelector = ({quantity, setQuantity}: QuantityProps) => {
   const onMinus = () => {
     setQuantity(Math.max(0, quantity - 1));
   };
