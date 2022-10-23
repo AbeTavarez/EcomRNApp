@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-native-picker/picker": "^2.4.8",
     "react": "18.1.0",
     "react-native": "0.70.3",
     "react-native-vector-icons": "^9.2.0"
